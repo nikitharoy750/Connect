@@ -99,23 +99,36 @@ export function Modal({
 
 /* ---------------- 1. splash ---------------- */
 
+
+
+/* ---------------- 1. splash ---------------- */
+
 export function Splash({ onEnter }: { onEnter: () => void }) {
   return (
-    <main className="grid-bg flex min-h-screen flex-col items-center justify-center px-6 text-center">
-      <Badge tone="peach">Est. for every classroom</Badge>
-      <h1 className="mt-8 text-6xl leading-none font-bold tracking-tight sm:text-8xl">
-        LAR
-        <span className="ml-3 inline-block rotate-[-2deg] nb bg-lavender px-4 py-1 text-primary-foreground">
-          Connect
-        </span>
-      </h1>
-      <p className="mt-6 max-w-md text-muted-foreground">
-        One bridge between rural and urban learning.
-      </p>
-      <div className="mt-10">
-        <NBButton onClick={onEnter} tone="yellow" className="text-lg">
-          Enter LAR Connect →
-        </NBButton>
+    <main className="grid-bg flex min-h-screen flex-col items-center justify-center overflow-hidden px-5 py-12 text-center">
+      <div className="mx-auto flex w-full max-w-5xl flex-col items-center">
+        <Badge tone="peach">Est. for every classroom</Badge>
+
+        <h1 className="mt-8 text-5xl font-bold leading-none tracking-tight sm:text-7xl md:text-8xl">
+          LAR
+          <span className="ml-2 inline-block rotate-[-2deg] nb bg-lavender px-3 py-2 text-primary-foreground sm:ml-4 sm:px-5">
+            Connect
+          </span>
+        </h1>
+
+        <p className="mt-6 max-w-md text-base text-muted-foreground sm:text-lg">
+          One bridge between rural and urban learning.
+        </p>
+
+        <div className="mt-9">
+          <NBButton
+            onClick={onEnter}
+            tone="yellow"
+            className="text-base sm:text-lg"
+          >
+            Enter LAR Connect →
+          </NBButton>
+        </div>
       </div>
     </main>
   );
