@@ -28,7 +28,12 @@ export const Route = createFileRoute("/")({
 type Stage = "splash" | "signin" | "onboarding" | "dashboard";
 
 function Index() {
-  const [stage, setStage] = useState<Stage>("splash");
+  const [stage, setStage] = useState<Stage>(() => {
+  if (typeof window !== "undefined" && window.location.search.includes("from=landing")) {
+    return "signin";
+  }
+  return "splash";
+});
   const [email, setEmail] = useState("");
   const [role, setRole] = useState<Role>("student");
 
