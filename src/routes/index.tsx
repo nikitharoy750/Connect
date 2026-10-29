@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Onboarding, SignIn, Splash, type Role } from "@/components/lar/flow";
 import { Dashboard } from "@/components/lar/dashboard";
 
@@ -36,6 +36,13 @@ function Index() {
 });
   const [email, setEmail] = useState("");
   const [role, setRole] = useState<Role>("student");
+  useEffect(() => {
+  const params = new URLSearchParams(window.location.search);
+
+  if (params.get("from") === "landing") {
+    setStage("signin");
+  }
+}, []);
 
   if (stage === "splash") return <Splash onEnter={() => setStage("signin")} />;
   if (stage === "signin")
